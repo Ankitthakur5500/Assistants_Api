@@ -33,7 +33,7 @@ export default function Home() {
        if(status.status=="completed"){
            response = await Response(threadId);
            console.log("-page->",response);
-           
+
           setDataArray(response);
            clearInterval(regularUpdate);
           response.map((item)=>{
@@ -55,7 +55,7 @@ export default function Home() {
       <div className='assistants2'>Assistant 3</div>
     </div>
     <div className='messagebody'>
-      <div className='user'>{dataArray.map((items)=>(<div>{items.content[0].text.value}</div>))}H</div>
+      <div className='user'>{dataArray.map((items,id)=>(<div key={id}>{items.content[0].text.value}</div>))}</div>
       {/* <div className='user'>Hello,How are you?</div>
       <div className='bot'>I am fine</div> */}
       <input className='input' style={{fontSize:"15px"}} type="text" onChange={(event)=>setData(event.target.value)}></input>
